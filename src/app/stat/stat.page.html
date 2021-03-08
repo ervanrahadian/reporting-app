@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="text-align: center">Statistik</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button color="danger" (click)="logout()">
+      <ion-icon name="log-out-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-card class="ion-no-margin">
+    <ion-searchbar
+      placeholder="Cari korban berdasarkan lokasi"
+      (ionInput)="filterStat($event)"
+    ></ion-searchbar>
+  </ion-card>
+
+  <!-- <ion-card>
+    <ion-item>
+      <ion-label>Jumlah Korban</ion-label>
+      <ion-badge color="warning" slot="end"></ion-badge>
+    </ion-item>
+  </ion-card> -->
+
+  <ion-card *ngFor="let item of searchList">
+    <ion-item>
+      <ion-label>
+        <h2>{{item.name}} ({{item.age}})</h2>
+        <p>{{item.address}}</p>
+      </ion-label>
+      <ion-badge color="warning" slot="end">{{item.location}}</ion-badge>
+    </ion-item>
+  </ion-card>
+</ion-content>
+
+<!-- <ion-footer>
+  <ion-toolbar>
+    <ion-title style="text-align: center">2021 Ervan Rahadian</ion-title>
+  </ion-toolbar>
+</ion-footer> -->

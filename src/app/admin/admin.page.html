@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="text-align: center">Login Admin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="warning" (click)="home()">
+      <ion-icon name="home-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-card>
+    <form>
+      <ion-list lines="full" class="ion-no-margin">
+        <ion-item>
+          <ion-label position="floating">Alamat Email</ion-label>
+          <ion-input
+            required
+            type="email"
+            [(ngModel)]="email"
+            name="email"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Kata Sandi</ion-label>
+          <ion-input
+            required
+            type="password"
+            [(ngModel)]="password"
+            name="password"
+          ></ion-input>
+        </ion-item>
+      </ion-list>
+    </form>
+  </ion-card>
+
+  <ion-button
+    style="margin-top: 30px; padding: 0 10px"
+    expand="block"
+    (click)="login()"
+    type="submit"
+    ><ion-icon size="large" name="log-in-sharp"></ion-icon
+  ></ion-button>
+
+  <ion-text color="warning">
+    <h4 style="padding: 30px 20px; text-align: center">
+      Tidak memiliki akun? Klik tombol dibawah ini untuk membuat akun baru.
+    </h4>
+  </ion-text>
+
+  <ion-button
+    style="padding: 0 10px"
+    expand="block"
+    (click)="regAdmin()"
+    type="submit"
+    ><ion-icon size="large" name="cloud-upload-sharp"></ion-icon
+  ></ion-button>
+</ion-content>
+
+<!-- <ion-footer>
+  <ion-toolbar>
+    <ion-title style="text-align: center">2021 Ervan Rahadian</ion-title>
+  </ion-toolbar>
+</ion-footer> -->

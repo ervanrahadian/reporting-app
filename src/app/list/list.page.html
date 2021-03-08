@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="text-align: center">Daftar Korban</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="warning" (click)="create()">
+      <ion-icon name="add-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button color="danger" (click)="logout()">
+      <ion-icon name="log-out-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-item style="text-align: center" color="warning">
+    <ion-label>Geser ke kiri atau kanan untuk memilih opsi</ion-label>
+  </ion-item>
+
+  <ion-card *ngFor="let covid of covids">
+    <ion-item-sliding>
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="{{covid.imagePath}}" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{covid.name}}</h2>
+          <p>{{covid.age}} Tahun</p>
+        </ion-label>
+      </ion-item>
+
+      <!-- Geser kanan -->
+      <ion-item-options side="start">
+        <ion-item-option color="warning"
+          ><ion-icon
+            size="large"
+            name="pencil-sharp"
+            (click)="edit(covid.personId)"
+          ></ion-icon
+        ></ion-item-option>
+      </ion-item-options>
+
+      <!-- Geser kiri -->
+      <ion-item-options side="end">
+        <ion-item-option color="danger"
+          ><ion-icon
+            size="large"
+            name="trash-sharp"
+            (click)="delete(covid.personId)"
+          ></ion-icon
+        ></ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-card>
+</ion-content>
+
+<!-- <ion-footer>
+  <ion-toolbar>
+    <ion-title style="text-align: center">2021 Ervan Rahadian</ion-title>
+  </ion-toolbar>
+</ion-footer> -->

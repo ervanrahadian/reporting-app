@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="text-align: center">Tambah Data Korban</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="warning" (click)="list()">
+      <ion-icon name="arrow-back-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-card>
+    <form>
+      <ion-list lines="full" class="ion-no-margin">
+        <ion-item>
+          <ion-label position="floating">Nama</ion-label>
+          <ion-input
+            required
+            type="text"
+            [(ngModel)]="name"
+            name="name"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Umur</ion-label>
+          <ion-input
+            required
+            type="number"
+            [(ngModel)]="age"
+            name="age"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Alamat</ion-label>
+          <ion-textarea
+            required
+            type="text"
+            [(ngModel)]="address"
+            name="address"
+          ></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+          <ion-input
+            required
+            type="file"
+            [(ngModel)]="imagePath"
+            name="imagePath"
+            (change)="chooseFile($event)"
+            id="fileInput"
+            accept=".png,.jpg"
+          ></ion-input>
+          <label for="fileInput" icon-only ion-button>
+            <ion-icon size="large" name="camera-sharp"></ion-icon>
+          </label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Jenis Kelamin</ion-label>
+          <ion-select
+            required
+            ok-text="Pilih"
+            cancel-text="Batal"
+            [(ngModel)]="gender"
+            name="gender"
+          >
+            <ion-select-option value="Pria">Pria</ion-select-option>
+            <ion-select-option value="Wanita">Wanita</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Lokasi Saya</ion-label>
+          <ion-select
+            required
+            ok-text="Pilih"
+            cancel-text="Batal"
+            [(ngModel)]="location"
+            name="location"
+          >
+            <ion-select-option *ngFor="let region of regions" [value]="region"
+              >{{region}}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </form>
+  </ion-card>
+
+  <ion-button
+    style="margin-top: 30px; padding: 0 10px"
+    expand="block"
+    (click)="createData()"
+    ><ion-icon size="large" name="save-sharp"></ion-icon
+  ></ion-button>
+</ion-content>
+
+<!-- <ion-footer>
+  <ion-toolbar>
+    <ion-title style="text-align: center">2021 Ervan Rahadian</ion-title>
+  </ion-toolbar>
+</ion-footer> -->
